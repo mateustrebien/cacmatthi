@@ -118,7 +118,7 @@ void formaTupla(char *tupla, const void *dado, char tipo, int tamAtual, int tamD
 	}
 }
 
-void readMeta(char *name, campo *c, int num_campos) { // função responsável por extrair os metadados, armazendo os dados na variável do tipo campo passada à funcao como parametro
+void lerMeta(char *name, campo *c, int num_campos) { // função responsável por extrair os metadados, armazendo os dados na variável do tipo campo passada à funcao como parametro
 	int i, j;
 	FILE *fp;
 	fp = fopen(name,"r");
@@ -145,12 +145,12 @@ void readMeta(char *name, campo *c, int num_campos) { // função responsável p
 }
 
 
-void readData(char *name, struct pagina *bp, campo *c, int num_campos) {
-	char nometeste[62];
+void lerData(char *name, struct pagina *bp, campo *c, int num_campos) {
+	char nometeste[tamtupla];
 	double dteste;
 	int iteste, i;
 	int tamanho_atual;
-	char *tuple=(char *)malloc(sizeof(char)*62);
+	char *tuple=(char *)malloc(sizeof(char)*tamtupla);
 	FILE *fp;
 	fp = fopen(name,"r");
 	if(!fp){
@@ -182,7 +182,7 @@ void readData(char *name, struct pagina *bp, campo *c, int num_campos) {
 
 
 
-int getCampos(char *name) { // recebe arquivo como parametro e retorna o total de campos de cada registro
+int buscaCampos(char *name) { // recebe arquivo como parametro e retorna o total de campos de cada registro
 	int campos=0;
 	FILE *fp;
 	fp = fopen(name,"r");

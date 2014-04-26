@@ -29,8 +29,8 @@ void imprimeTupla(struct pagina *bp, campo *c, int pag, int reg, int tamtupla, i
 
 void formaTupla(char *tp, const void *v, char t, int st, int tam); // função que recebe os dados extraidos da leitura do arquivo(*v), tratado conforme o tipo(t) e encaminhado para ser "anexado" à tupla
 
-void readMeta(char *name, campo *c, int num_campos); // função que faz a leitura dos metadados a partir de um arquivo(name) e grava estes na variavel tipo campo(c). Variavel num_campos representa a quantidade de campos seguidos referentes a um registro. 
+void lerMeta(char *name, campo *c, int num_campos); // função que faz a leitura dos metadados a partir de um arquivo(name) e grava estes na variavel tipo campo(c). Variavel num_campos representa a quantidade de campos seguidos referentes a um registro. 
 
-void readData(char *name, struct pagina *bp, campo *c, int num_campos); // função que faz a leitura dos dados a partir do arquivo(name) que serão armazenados em tuplas que serão gravadas no buffer. Variavel c possui os metadados e variavel num_campos a quantia de campos de uma tupla.
+void lerData(char *name, struct pagina *bp, campo *c, int num_campos); // função que faz a leitura dos dados a partir do arquivo(name) que serão armazenados em tuplas que serão gravadas no buffer. Variavel c possui os metadados e variavel num_campos a quantia de campos de uma tupla.
 
-int getCampos(char *name); // função que extrai o numero de campos por tupla a partir do arquivo(name).
+int buscaCampos(char *name); // função que extrai o numero de campos por tupla a partir do arquivo(name).
